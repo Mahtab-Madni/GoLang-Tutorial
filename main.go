@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// add is a function that takes two integers as parameters and returns their sum
+// add is a function that takes two integers as parameters and returns their sum as an integer.
 func add(x, y int) int {
 	return x + y
 }
@@ -11,6 +11,9 @@ func main() {
 	// 1. Declare a variable of type string and assign it a value
 	var greeting string = "Hello, Go!"
 	fmt.Println(greeting)
+
+	var msg = "Welcome to Go programming!" // type inference allows us to omit the type when declaring a variable, as Go can infer it from the assigned value.
+	fmt.Println(msg)
 
 	// 2. Declare a variable of type int and assign it a value
 	var age int = 30
@@ -26,19 +29,19 @@ func main() {
 
 	// 5. Declare a variable of type string without assigning it a value
 	var name string
-	fmt.Println(name)
+	fmt.Println(name) // output -> "" (default value for string)
 
 	// 6. Declare a variable of type int without assigning it a value
 	var count int
-	fmt.Println(count)
+	fmt.Println(count) // output -> 0 (default value for int)
 
 	// 7. Declare a variable of type float64 without assigning it a value
 	var temperature float64
-	fmt.Println(temperature)
+	fmt.Println(temperature) // output -> 0 (default value for float64)
 
 	// 8. Declare a variable of type bool without assigning it a value
 	var isRaining bool
-	fmt.Println(isRaining)
+	fmt.Println(isRaining) // output -> false (default value for bool)
 
 	// 9. Declare a variable of type string and assign it a value using shorthand syntax
 	message := "Welcome to Go programming!"
@@ -142,8 +145,36 @@ func main() {
 			fmt.Println("It's a regular day.")
 	}
 	
-	// 26. Declare a function that takes two integers as parameters and returns their sum
+	//26. using logical operators (&&, ||, !) to combine multiple conditions in an if statement
+	age = 25
+	isStudent := true
+	if age < 30 && isStudent {
+		fmt.Println("You are a young student.")
+	}
+	
+	// 27. Declare a function that takes two integers as parameters and returns their sum
 	sum := add(10, 20)
 	fmt.Println("Sum:", sum)
 
+	// 28. Declare a function that takes a string as a parameter and prints a greeting message
+	greet := func(name string) {
+		fmt.Printf("Hello, %s!\n", name)
+	}
+	greet("Alice")
+
+	// 29. Declare a function that takes no parameters and returns a string
+	getMessage := func() string {
+		return "Welcome to Go programming!"
+	}
+	fmt.Println(getMessage())
+
+	// 30. Declare a function that takes a variable number of arguments and returns their average
+	average := func(nums ...float64) float64 {
+		var sum float64
+		for _, num := range nums {
+			sum += num
+		}
+		return sum / float64(len(nums))
+	}
+	fmt.Println(average(1, 2, 3, 4, 5))
 }

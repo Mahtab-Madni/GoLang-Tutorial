@@ -88,7 +88,7 @@ func main() {
 		fmt.Println("Iteration:", i)
 	}
 
-	//20. Declare a while loop that continues until a variable reaches a certain value
+	//20. Declare a while loop using a for loop that continues until a variable reaches a certain value
 	counter := 0
 	for counter < 5 {
 		fmt.Println("Counter:", counter)
@@ -96,13 +96,13 @@ func main() {
 	}
 
 	//21. using range in a loop to iterate over a collection of items
-	numbers := []int{1, 2, 3, 4, 5}
+	numbers := []int{1, 2, 3, 4, 5}  // slice of integers
 	for index, value := range numbers {
 		fmt.Printf("Index: %d, Value: %d\n", index, value) // output -> Index: 0, Value: 1
 	}
 
 	//22. using nested loops to iterate over multiple collections of items
-	matrix := [][]int{
+	matrix := [][]int{ // 2D slice (matrix) of integers
 		{1, 2, 3},
 		{4, 5, 6},
 		{7, 8, 9},

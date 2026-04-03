@@ -12,8 +12,35 @@ func main() {
 	var greeting string = "Hello, Go!"
 	fmt.Println(greeting)
 
+	// Difference between fmt.Print, fmt.Println and fmt.Printf
+	// fmt.Print: prints the output without a newline at the end
+	// fmt.Println: prints the output with a newline at the end
+	// fmt.Printf: prints the output according to a format specifier
+
 	var msg = "Welcome to Go programming!" // type inference allows us to omit the type when declaring a variable, as Go can infer it from the assigned value.
 	fmt.Println(msg)
+
+	// Taking input from the user and storing it in a variable
+	var userName string
+	fmt.Print("Enter your name: ")
+	fmt.Scanln(&userName) // &userName is used to pass the address of the userName variable to the Scanln function, allowing it to store the user input in the userName variable.
+	fmt.Printf("Hello, %s!\n", userName)
+
+	// difference between fmt.Scan, fmt.Scanln, fmt.Scanf, fmt.Scanfs , fmt.Sscan , fmt.Sscanln, fmt.Sscanf, fmt.Sscanfs
+	// fmt.Scan: reads input until it encounters whitespace
+	// fmt.Scanln: reads input until it encounters a newline character
+	// fmt.Scanf: reads input according to a format specifier
+	// fmt.Scanfs: reads input according to a format specifier and stores the values in the provided variables
+	// fmt.Sscan: reads input from a string until it encounters whitespace 
+	// fmt.Sscanln: reads input from a string until it encounters a newline character
+	// fmt.Sscanf: reads input from a string according to a format specifier
+	// fmt.Sscanfs: reads input from a string according to a format specifier and stores the values in the provided variables
+
+	// Taking input from the user of any types and storing it in a interface{} variable
+	var userInput any // any is an alias for interface{}, which can hold values of any type. It allows us to store user input of any type without needing to specify a specific type for the variable.
+	fmt.Print("Enter any value: ")
+	fmt.Scanln(&userInput)
+	fmt.Println("You entered: ", userInput) 
 
 	// 2. Declare a variable of type int and assign it a value
 	var age int = 30
@@ -169,9 +196,9 @@ func main() {
 	fmt.Println(getMessage())
 
 	// 30. Declare a function that takes a variable number of arguments and returns their average
-	average := func(nums ...float64) float64 {
+	average := func(nums ...float64) float64 { // nums ...float64 allows the function to accept a variable number of float64 arguments, which are treated as a slice within the function.
 		var sum float64
-		for _, num := range nums {
+		for _, num := range nums { // The range loop iterates over the nums slice, and the _ is used to ignore the index of each element, while num represents the value of each element in the slice.
 			sum += num
 		}
 		return sum / float64(len(nums))
